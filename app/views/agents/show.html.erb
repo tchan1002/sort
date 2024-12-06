@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Agent #<%= @the_agent.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/agents">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_agent/<%= @the_agent.id %>">
+          Delete agent
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_agent.user_id %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_agent.name %>
+      </dd>
+
+      <dt>
+        Directive
+      </dt>
+      <dd>
+        <%= @the_agent.directive %>
+      </dd>
+
+      <dt>
+        Attempts count
+      </dt>
+      <dd>
+        <%= @the_agent.attempts_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_agent.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_agent.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit agent
+    </h2>
+
+    <form action="/modify_agent/<%= @the_agent.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_agent.user_id %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_agent.name %>">
+      </div>
+
+      <div>
+        <label for="directive_box">
+          Directive
+        </label>
+
+        <textarea id="directive_box" name="query_directive"><%= @the_agent.directive %></textarea>
+      </div>
+
+      <div>
+        <label for="attempts_count_box">
+          Attempts count
+        </label>
+
+        <input type="text" id="attempts_count_box" name="query_attempts_count" value="<%= @the_agent.attempts_count %>">
+      </div>
+
+      <button>
+        Update agent
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

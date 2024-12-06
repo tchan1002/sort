@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Attempt #<%= @the_attempt.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/attempts">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_attempt/<%= @the_attempt.id %>">
+          Delete attempt
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Input
+      </dt>
+      <dd>
+        <%= @the_attempt.input_id %>
+      </dd>
+
+      <dt>
+        Agent
+      </dt>
+      <dd>
+        <%= @the_attempt.agent_id %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_attempt.status %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_attempt.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_attempt.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit attempt
+    </h2>
+
+    <form action="/modify_attempt/<%= @the_attempt.id %>"  method="post" >
+      <div>
+        <label for="input_id_box">
+          Input
+        </label>
+
+        <input type="text" id="input_id_box" name="query_input_id" value="<%= @the_attempt.input_id %>">
+      </div>
+
+      <div>
+        <label for="agent_id_box">
+          Agent
+        </label>
+
+        <input type="text" id="agent_id_box" name="query_agent_id" value="<%= @the_attempt.agent_id %>">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_attempt.status %>">
+      </div>
+
+      <button>
+        Update attempt
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

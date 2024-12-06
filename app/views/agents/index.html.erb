@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all agents
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new agent
+    </h2>
+
+    <form action="/insert_agent" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="directive_box">
+          Directive
+        </label>
+
+        <textarea id="directive_box" name="query_directive" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="attempts_count_box">
+          Attempts count
+        </label>
+
+        <input type="text" id="attempts_count_box" name="query_attempts_count">
+      </div>
+
+      <button>
+        Create agent
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Directive
+        </th>
+
+        <th>
+          Attempts count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_agents.each do |an_agent| %>
+      <tr>
+        <td>
+          <%= an_agent.id %>
+        </td>
+
+        <td>
+          <%= an_agent.user_id %>
+        </td>
+
+        <td>
+          <%= an_agent.name %>
+        </td>
+
+        <td>
+          <%= an_agent.directive %>
+        </td>
+
+        <td>
+          <%= an_agent.attempts_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_agent.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_agent.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/agents/<%= an_agent.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

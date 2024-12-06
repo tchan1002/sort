@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Input #<%= @the_input.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/inputs">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_input/<%= @the_input.id %>">
+          Delete input
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_input.user_id %>
+      </dd>
+
+      <dt>
+        Body
+      </dt>
+      <dd>
+        <%= @the_input.body %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_input.status %>
+      </dd>
+
+      <dt>
+        Subject
+      </dt>
+      <dd>
+        <%= @the_input.subject %>
+      </dd>
+
+      <dt>
+        Attempts count
+      </dt>
+      <dd>
+        <%= @the_input.attempts_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_input.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_input.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit input
+    </h2>
+
+    <form action="/modify_input/<%= @the_input.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_input.user_id %>">
+      </div>
+
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <textarea id="body_box" name="query_body"><%= @the_input.body %></textarea>
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_input.status %>">
+      </div>
+
+      <div>
+        <label for="subject_box">
+          Subject
+        </label>
+
+        <input type="text" id="subject_box" name="query_subject" value="<%= @the_input.subject %>">
+      </div>
+
+      <div>
+        <label for="attempts_count_box">
+          Attempts count
+        </label>
+
+        <input type="text" id="attempts_count_box" name="query_attempts_count" value="<%= @the_input.attempts_count %>">
+      </div>
+
+      <button>
+        Update input
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
