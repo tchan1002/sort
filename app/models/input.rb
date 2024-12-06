@@ -12,4 +12,6 @@
 #  user_id        :integer
 #
 class Input < ApplicationRecord
+belongs_to(:user, required: true, class_name: "User", foreign_key: "user_id", counter_cache: true)
+has_many(:attempts, class_name: "Attempt", foreign_key: "input_id", dependent: :destroy)
 end

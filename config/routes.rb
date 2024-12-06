@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "inputs#index"
+  
   # Routes for the Attempt resource:
 
   # CREATE
